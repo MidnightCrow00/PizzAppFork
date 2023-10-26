@@ -1,30 +1,21 @@
 package pizzapp;
 
 public class PizzApp extends javax.swing.JFrame {
-int pizzaAlapAr = -1;
-int extrak;
-int db = 1;
-double vegsoAr;
-double meret;
+    int pizzaAlapAr = -1;
+    int extrak;
+    int db = 1;
+    double vegsoAr;
+    double meret;
+    int extra1 = 0;
+    int extra2 = 0;
+    int extra3 = 0;
 
     public PizzApp() {
         initComponents();
         
         int pizzaAlapAr2 = 1750;
         
-        meret = 1;
-        
-        int extra1 = 0;
-        int extra2 = 0;
-        int extra3 = 0;
-        extrak = extra1 * extra2 * extra3;  
-        
-        db = 1;
-        
-        vegsoAr = pizzaAlapAr * meret + extrak;
-        vegsoAr *= db;
-        
-        lblAr.setText(vegsoAr + "");
+        szamitasEsKiiras();
     }
 
     @SuppressWarnings("unchecked")
@@ -152,10 +143,25 @@ double meret;
         pnlExtrak.setBorder(javax.swing.BorderFactory.createTitledBorder("Extrák"));
 
         chbSajt.setText("sajt");
+        chbSajt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chbSajtActionPerformed(evt);
+            }
+        });
 
         chbHagyma.setText("hagyma");
+        chbHagyma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chbHagymaActionPerformed(evt);
+            }
+        });
 
         chbAnanasz.setText("ananász");
+        chbAnanasz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chbAnanaszActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlExtrakLayout = new javax.swing.GroupLayout(pnlExtrak);
         pnlExtrak.setLayout(pnlExtrakLayout);
@@ -262,37 +268,66 @@ double meret;
         }else if (pizzaIndex == 3){
            pizzaAlapAr = 2100;
         }
-        meret = 1;
-
-         int extra1 = 0;
-         int extra2 = 0;
-         int extra3 = 0;
-         extrak = extra1 * extra2 * extra3;  
 
         db = 1;
 
-         vegsoAr = pizzaAlapAr * meret + extrak;
-         vegsoAr *= db;
-        
-        lblAr.setText(vegsoAr + "");
+         szamitasEsKiiras();
     }//GEN-LAST:event_cmbValaszthatoPizzakActionPerformed
 
     private void rdbMeret25ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret25ItemStateChanged
         meret = .75;
         
+        szamitasEsKiiras();
+    }//GEN-LAST:event_rdbMeret25ItemStateChanged
+
+    private void szamitasEsKiiras() {
         vegsoAr = pizzaAlapAr * meret + extrak;
         vegsoAr *= db;
         
         lblAr.setText(vegsoAr + "");
-    }//GEN-LAST:event_rdbMeret25ItemStateChanged
+    }
 
     private void rdbMeret32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbMeret32ActionPerformed
         meret = 1;
-        vegsoAr = pizzaAlapAr * meret + extrak;
-        vegsoAr *= db;
         
-        lblAr.setText(vegsoAr + "");
+        szamitasEsKiiras();
     }//GEN-LAST:event_rdbMeret32ActionPerformed
+
+    private void chbSajtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbSajtActionPerformed
+        if (chbSajt.isSelected()){
+            extra1 = 300;
+            extrak = extra1 * extra2 * extra3;  
+        }
+        else if (chbSajt.isSelected()== false){
+            extra1 = 0;
+            extrak = extra1 * extra2 * extra3;  
+        szamitasEsKiiras();
+        }
+    }//GEN-LAST:event_chbSajtActionPerformed
+
+    private void chbHagymaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbHagymaActionPerformed
+        if (chbHagyma.isSelected()){
+            extra1 = 300;
+            extrak = extra1 * extra2 * extra3;  
+        }
+        else if (chbHagyma.isSelected()== false){
+            extra1 = 0;
+            extrak = extra1 * extra2 * extra3;  
+        szamitasEsKiiras();
+        }
+    }//GEN-LAST:event_chbHagymaActionPerformed
+
+    private void chbAnanaszActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbAnanaszActionPerformed
+      if (chbAnanasz.isSelected()){
+            extra1 = 300;
+            extrak = extra1 * extra2 * extra3;  
+        }
+        else if (chbAnanasz.isSelected()== false){
+            extra1 = 0;
+            extrak = extra1 * extra2 * extra3;  
+        szamitasEsKiiras();
+        }
+    }//GEN-LAST:event_chbAnanaszActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
